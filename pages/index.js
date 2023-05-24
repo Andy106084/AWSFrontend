@@ -43,7 +43,7 @@ export default function Home() {
     };
 
   // Just gets all the tasks from the contract
-  const getAllTasks = async () => {
+    const getAllTasks = async () => {
     try {
       const { ethereum } = window;
       if (ethereum) {
