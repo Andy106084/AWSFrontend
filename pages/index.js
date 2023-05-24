@@ -22,12 +22,12 @@ export default function Home() {
     const [input, setInput] = useState("");
     const [tasks, setTasks] = useState([]);
 
-  useEffect(() => {
-    // console.log("TaskAbit:", TaskAbiT);
-    // console.log("Abi:", TaskAbi.abi);
-    // connectWallet();
-    getAllTasks();
-  }, []);
+    useEffect(() => {
+      // console.log("TaskAbit:", TaskAbiT);
+      // console.log("Abi:", TaskAbi.abi);
+      // connectWallet();
+      getAllTasks();
+    }, []);
 
   const connectWallet = async () => {
     const { ethereum } = window;
