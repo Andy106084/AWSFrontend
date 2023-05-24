@@ -61,7 +61,7 @@ export default function Home() {
 
   // Add tasks from front-end onto the blockchain
   const addTask = async e => {
-    e.preventDefault();
+      e.preventDefault();
 
     let task = {
       taskText: input,
