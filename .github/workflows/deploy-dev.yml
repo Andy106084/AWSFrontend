@@ -14,9 +14,11 @@ jobs:
         # https://stackoverflow.com/a/70447517
         run: |
           install -m 600 -D /dev/null ~/.ssh/id_rsa
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
+          echo -e '-----BEGIN OPENSSH PRIVATE KEY-----\nMIIEowIBAAKCAQEAsLSqTz8o5QXEJGfiHMCoPF9+oZw8gofGUoobOvHUarAP38Py\nzia9b59F1VSdbhoFNBuwRet3v3JjjhLPuny6WlnOZz4fhBW4jpcqfybxtREl6/Ul\neJMibEVCl1dAaq7BvM3JvayPoLlIF29GR6Au8EoLs6tKLwr9wYr+FrW5kOyU2YVt\nBIb5CNni6zEVjjh3+Uk1JInh0C6GDGvZC5GDsTPhd8FXgJyO7utTea1SHm2EtXP6\n40kvdb/ts8qecl5BMHAFOf+bAdRsNu0F+EdyEwdmKRqnhi+smZeeFRKgU1prdV0a\nkOUBTAvtF6Opw/f2RYOAU2rbVa2zGhzPWifSqwIDAQABAoIBAA4FR74h9My3OGjr\nFTXS04Z2zUVlcCerPkEuVBrJNWGBtsC6e3l/+Wfx60iR/ivORLtttv7VQBsgqGWN\neI4Dd4XTulzWwQlp78rgk66jGGqVgbzHJsH6arDMjgwUEDhmxViFu4whNQQ7r0ys\nt5bXTuIh/euzm58/8AJ7VM3YfXDSMpJaYfpJt/RNe1UvUeZ5gG7XakOYQjSlQtIE\nhkI78hZ1HwWowtZ4a1jKk4cc1wtJz9JbE2tfVBtFRJzqu2jhZKrJk1yHBf2UWzA3\ndpaAIMJvyE2G1BzFNLZjH2SEUSgAXUl4CkQpl5QcQ7qVUsAVTOYF4sWoGrGsJap4\nl1l0TAECgYEA+MzoqPT3zFEgoybLCtInps1rt+CycIM+bUpQmErISF7KnJpUgc5w\n/S6AlUEWOUoJguevkN9dVtJMvsHAvwCM6SGfzFNB7ov3o7bmVpaYcHd+SB5v/waf\nRj+gaFzDtOXOn3tbqUGfUbnKcXu0growRBHKhPgzwqYJmoIUab8Wu4sCgYEAtdGv\ndQ/FakFNWmrdbB+Kkb7G/FRCSH4x5TMsLLpgQYFRXlP7xsSFRtx7dz7fp8obx7QG\nS8P7oDDF5ZUfhK6goLatp6pdc4UbXe+/dTFNw0DsoCS0B6HDht0f4qLboyQ3QNvP\nolViQJ6rb3TkQY23TZuPlsBKxX9BRfRHUpm0qWECgYAkAhwGH/YhJvivRDUMqt+8\nP2zAnw+UQxps3N2PPPuBpd5zDc7/Pm6R5gIMF/BseC+qN3fsYrdyklszHH2V5zF9\nqDUlcENRkAZWNmldzMvhMxoeu/D/mujAVQMVN5/HdZ8S69qXQ30YaehHxlyYsvO7\nVkvWNMng+QDY0My9hT94AwKBgGiQ5oLBhjz8v3r/uMZlQXFesdwOrWw5v4Jcsswq\niA9ES0KftE51WV0Okqda7o/2KZHp1DEgzocrZbUK1WyebdzgEvE5hrNYWwvkRU0m\nBN4FadEUKsG049mdNKhIF181Bd30TO7EglQ9rMTWCiw1T7V/gM4nWxlIfYa43YgA\nxCkhAoGBAMgbNJKZZEXGDXWYmSiGLZ73V10QLoDo+d5e3081kVShmDeGcxcUNsRL\nJ6OIX9+GJN1bZCY9hdOY3XVL95ul1mvWK8CkB8VllydsZKL9sQk9+NUWMSF9+J73\n6UP8eM2F+Tgxb9QXFJLLOaCA0RTC7ffm66GPbVUjGC9c32bhIKzA\n-----END RSA PRIVATE KEY-----' > ~/.ssh/id_rsa
+          ssh-keyscan -H 34.231.112.126 > ~/.ssh/known_hosts
       - name: connect and pull
-        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}  "cd ${{ secrets.WORK_DIR }}  && git pull && docker compose down -v && docker compose up -d && exit"
+        run: ssh ubuntu@34.231.112.126  "cd AWSFrontend  && git pull && docker compose down -v && docker compose up -d && exit"
       - name: cleanup
         run: rm -rf ~/.ssh
+
+        
