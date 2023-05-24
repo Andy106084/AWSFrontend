@@ -15,11 +15,10 @@ jobs:
         run: |
           install -m 600 -D /dev/null ~/.ssh/id_rsa
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
-          
-      - name: cat result
-        run: cat ~/.ssh/id_rsa
+          ssh-keyscan -H 34.231.112.126 > ~/.ssh/known_hosts
       - name: connect and pull
-        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+        run: ssh ubuntu@34.231.112.126
       - name: cleanup
         run: rm -rf ~/.ssh
+
+        
