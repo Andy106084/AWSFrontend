@@ -29,18 +29,18 @@ export default function Home() {
       getAllTasks();
     }, []);
 
-  const connectWallet = async () => {
-    const { ethereum } = window;
-    if (ethereum) console.log("inside");
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    await provider.send("eth_requestAccounts", []);
-    const signer = provider.getSigner();
-    let address = await signer.getAddress();
-    setCurrenAccount(address);
-    setIsUserLoggedIn(true);
-    setCorrectNetwork(true);
-    console.log(address);
-  };
+    const connectWallet = async () => {
+      const { ethereum } = window;
+      if (ethereum) console.log("inside");
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      await provider.send("eth_requestAccounts", []);
+      const signer = provider.getSigner();
+      let address = await signer.getAddress();
+      setCurrenAccount(address);
+      setIsUserLoggedIn(true);
+      setCorrectNetwork(true);
+      console.log(address);
+    };
 
   // Just gets all the tasks from the contract
   const getAllTasks = async () => {
