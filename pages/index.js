@@ -16,11 +16,11 @@ const tasks = [
 
 export default function Home() {
   // Calls Metamask to connect wallet on clicking Connect Wallet button
-  const [correctNetwork, setCorrectNetwork] = useState(false);
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-  const [, setCurrenAccount] = useState(false);
-  const [input, setInput] = useState("");
-  const [tasks, setTasks] = useState([]);
+    const [correctNetwork, setCorrectNetwork] = useState(false);
+    const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+    const [, setCurrenAccount] = useState(false);
+    const [input, setInput] = useState("");
+    const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
     // console.log("TaskAbit:", TaskAbiT);
